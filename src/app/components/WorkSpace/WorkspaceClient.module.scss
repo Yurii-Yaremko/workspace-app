@@ -1,0 +1,122 @@
+@import '../../styles/variables.scss';
+
+.workspace {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  overflow: auto;
+  padding: $spacing-lg;
+  max-width: $container-max-width;
+  margin: 0 auto;
+}
+
+.block {
+  min-width: $button-min-width;
+  min-height: $button-min-width;
+  background: $color-white;
+  border: 1px solid $color-gray-border;
+  border-radius: $border-radius-md;
+  box-shadow: $shadow-sm;
+  transition: box-shadow $transition-smooth;
+  position: absolute;
+
+  &:hover {
+    box-shadow: $shadow-md;
+  }
+}
+
+.blockContent {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: $font-size-lg;
+  user-select: none;
+}
+
+.deleteButton {
+  position: absolute;
+  top: $spacing-sm;
+  right: $spacing-sm;
+  width: 24px;
+  height: 24px;
+  border-radius: $border-radius-full;
+  border: none;
+  background: $color-error;
+  color: $color-white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  opacity: 0.7;
+  transition: opacity $transition-base;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
+.errorContainer {
+  padding: $spacing-lg;
+  text-align: center;
+  
+  h2 {
+    color: $color-error;
+    margin-bottom: $spacing-md;
+  }
+}
+
+.resetButton {
+  width: 20%;
+  min-width: $button-min-width;
+  height: $button-height-base;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: $border-radius-md;
+  border: 1px solid $color-primary;
+  background-color: $color-white;
+  color: $color-primary;
+  font-size: $font-size-base;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+  margin-left: auto;
+
+  &:hover {
+    background-color: $color-gray-light;
+  }
+}
+
+@media (max-width: $breakpoint-mobile) {
+  .workspace {
+    padding: $spacing-sm;
+    height: calc(100vh - #{$spacing-lg});
+  }
+
+  .block {
+    max-width: calc(100% - #{$spacing-lg});
+    max-height: calc(100vh - 150px);
+  }
+
+  .blockContent {
+    font-size: $font-size-base;
+  }
+
+  .deleteButton {
+    width: 20px;
+    height: 20px;
+    font-size: $font-size-base;
+  }
+
+  .resetButton {
+    right: $spacing-md;
+    top: $spacing-md;
+    width: $button-min-width;
+    height: $button-height-sm;
+    font-size: $font-size-sm;
+  }
+} 
