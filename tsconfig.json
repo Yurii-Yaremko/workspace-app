@@ -19,7 +19,15 @@
       }
     ],
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/app/components/*"],
+      "@styles/*": ["./src/app/styles/*"],
+      "@hooks/*": ["./src/app/hooks/*"],
+      "@types": ["./src/app/types"],
+      "@bitcoin/*": ["./src/app/components/Bitcoin/*"],
+      "@workspace/*": ["./src/app/components/WorkSpace/*"],
+      "@utils/*": ["./src/app/utils/*"],
+      "@services/*": ["./src/app/services/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],

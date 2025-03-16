@@ -1,8 +1,8 @@
 'use client';
 
 import { Rnd } from 'react-rnd';
-import styles from './WorkspaceClient.module.scss';
-import { BlockProps } from './Types';
+import styles from '@workspace/WorkspaceClient.module.scss';
+import { BlockProps } from '@types';
 
 export default function Block({
   block,

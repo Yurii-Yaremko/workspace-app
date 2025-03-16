@@ -1,6 +1,6 @@
 'use client';
 
-import BitcoinClientWrapper from '../components/Bitcoin/BitcoinClientWrapper';
+import BitcoinClientWrapper from '@bitcoin/BitcoinClientWrapper';
 
 export default function BitcoinPage() {
   return <BitcoinClientWrapper />;

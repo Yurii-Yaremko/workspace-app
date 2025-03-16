@@ -1,28 +1,14 @@
 # Workspace App
 
-A Next.js web application that combines an interactive workspace with a real-time Bitcoin transaction tracker.
+A modern React application built with Next.js that includes a workspace for managing draggable blocks and a real-time Bitcoin transaction tracker.
 
 ## Features
 
-### Workspace
-- Interactive workspace with block creation functionality
-- Drag and resize capabilities for blocks
-- Block state persistence
-- Responsive design for various screen sizes
-
-### Bitcoin Tracker
-- Real-time Bitcoin transaction monitoring
-- Transaction details display (sender, receiver, amount)
-- Start/Stop tracking controls
-- Automatic conversion from satoshi to BTC
-
-## Technologies
-
-- **Frontend**: Next.js 14, React, TypeScript
-- **Styling**: SCSS Modules
-- **WebSocket**: Blockchain.info API
-- **State Management**: React Hooks
-- **Components**: Server & Client Components
+- **Workspace Module**: Interactive workspace with draggable and resizable blocks
+- **Bitcoin Tracker**: Real-time Bitcoin transaction monitoring
+- **Modern UI**: Clean and responsive design with SCSS modules
+- **Type Safety**: Full TypeScript support
+- **Global Imports**: Using TypeScript path aliases for clean and maintainable imports
 
 ## Project Structure
 
@@ -30,37 +16,97 @@ A Next.js web application that combines an interactive workspace with a real-tim
 src/
 ├── app/
 │   ├── components/
-│   │   ├── Bitcoin/       # Bitcoin tracker components
-│   │   └── WorkSpace/     # Workspace components
-│   ├── bitcoin/          # Bitcoin tracker page
-│   ├── workspace/        # Workspace page
-│   ├── styles/          # Global styles and variables
-│   └── layout.tsx       # Main app layout
+│   │   ├── Bitcoin/
+│   │   │   ├── BitcoinTracker.tsx
+│   │   │   ├── Controls.tsx
+│   │   │   ├── TransactionList.tsx
+│   │   │   ├── useWebSocket.ts
+│   │   │   └── BitcoinTracker.module.scss
+│   │   └── WorkSpace/
+│   │       ├── Block.tsx
+│   │       ├── WorkspaceClient.tsx
+│   │       ├── useBlocks.ts
+│   │       └── WorkspaceClient.module.scss
+│   ├── hooks/
+│   │   ├── useBlocksPosition.ts
+│   │   └── useBlocksState.ts
+│   ├── services/
+│   │   └── storage.ts
+│   ├── styles/
+│   │   ├── base/
+│   │   │   └── _reset.scss
+│   │   └── variables.scss
+│   ├── utils/
+│   │   ├── bitcoin.ts
+│   │   └── workspace.ts
+│   └── types.ts
 ```
 
-## Installation and Setup
+## Code Organization
 
-1. Clone the repository:
-```bash
-git clone [repository-url]
-```
+### Utilities
+- `bitcoin.ts`: Bitcoin-related helper functions and constants
+  - `formatBTCAmount`: Formats BTC amounts with 8 decimal places
+  - `calculateTotalAmount`: Calculates total BTC from transaction outputs
+  - `formatAddress`: Formats Bitcoin addresses with ellipsis
+  
+- `workspace.ts`: Workspace-related utilities
+  - `snapToGrid`: Ensures blocks snap to grid
+  - `getMaxZIndex`: Manages block layering
+  - `WORKSPACE_CONSTANTS`: Configuration constants
 
-2. Install dependencies:
+### Hooks
+- `useBlocksPosition`: Manages block positioning and resizing
+- `useBlocksState`: Handles block state (visibility, z-index)
+- `useWebSocket`: WebSocket connection management for Bitcoin tracking
+
+### Services
+- `storage.ts`: Local storage management for workspace blocks
+
+## Recent Improvements
+
+1. **Code Modularization**
+   - Separated business logic into dedicated hooks
+   - Extracted reusable utilities
+   - Implemented service layer for data persistence
+
+2. **Bitcoin Module Enhancements**
+   - Added formatting utilities for BTC amounts and addresses
+   - Improved WebSocket connection management
+   - Enhanced transaction display
+
+3. **Workspace Module Updates**
+   - Improved block positioning with grid snapping
+   - Enhanced state management for blocks
+   - Added persistence layer for workspace state
+
+4. **Type Safety**
+   - Added comprehensive TypeScript interfaces
+   - Improved type checking across components
+
+## Getting Started
+
+1. Install dependencies:
 ```bash
 npm install
 ```
 
-3. Run the development server:
+2. Run the development server:
 ```bash
 npm run dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+3. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-## Implementation Details
+## Technical Stack
 
-- Utilization of Next.js Server and Client Components
-- WebSocket implementation for Bitcoin transactions
-- Responsive design using SCSS variables
-- SEO optimization through metadata
+- Next.js
+- React
+- TypeScript
+- SCSS Modules
+- WebSocket API
+- Local Storage API
 
+## Path Aliases
+
+To improve code maintainability and readability, this project uses global imports through TypeScript path aliases instead of relative paths. This approach eliminates the need for complex relative paths (../../) and makes the codebase more maintainable.

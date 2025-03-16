@@ -1,13 +1,14 @@
 'use client';
 
 import { useState, useCallback } from 'react';
-import styles from './BitcoinTracker.module.scss';
-import { Transaction } from './types';
+import styles from '@bitcoin/BitcoinTracker.module.scss';
+import { Transaction } from '@types';
 import { useWebSocket } from './useWebSocket';
 import TransactionList from './TransactionList';
 import Controls from './Controls';
 import Link from 'next/link';
 import pageStyles from '../../page.module.scss';
+import { formatBTCAmount } from '@utils/bitcoin';
 
 export default function BitcoinTracker() {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
@@ -27,14 +28,12 @@ export default function BitcoinTracker() {
     setTotalSum(0);
   };
 
-
   return (
     <div className={styles.container}>
-      
       <div className={pageStyles.btns}>
-        <Link href="/">Go to Home</Link>
+        <Link href="/" className={pageStyles['btns__link']} >Go to Home</Link>
       </div>
-      <h1>Bitcoin Transactions Tracker</h1>
+      <h1 className={styles.title}>Bitcoin Transactions Tracker</h1>
       
       <Controls 
         isConnected={isConnected}
@@ -44,7 +43,7 @@ export default function BitcoinTracker() {
       />
 
       <div className={styles.totalSum}>
-        Total Sum: {totalSum.toFixed(8)} BTC
+        Total Sum: {formatBTCAmount(totalSum)} BTC
       </div>
 
       <TransactionList transactions={transactions} />

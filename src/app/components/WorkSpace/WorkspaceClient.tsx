@@ -1,10 +1,10 @@
 'use client';
 
-import styles from './WorkspaceClient.module.scss';
-import Block from './Block';
-import { useBlocks } from './useBlocks';
+import styles from '@workspace/WorkspaceClient.module.scss';
+import Block from '@workspace/Block';
+import { useBlocks } from '@workspace/useBlocks';
 import Link from 'next/link';
-import pageStyles from '../../page.module.scss';
+  import pageStyles from '../../page.module.scss';
 
 const GRID_SIZE = 10;
 
@@ -22,7 +22,7 @@ export default function WorkspaceClient() {
   return (
     <div className={styles.workspace}>
       <div className={pageStyles.btns}>
-        <Link href="/">
+        <Link href="/" className={pageStyles['btns__link']}>
           Go to Home
         </Link>
         <button className={styles.resetButton} onClick={handleReset}>

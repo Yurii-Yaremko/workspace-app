@@ -1,10 +1,10 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { Transaction } from './types';
+import { Transaction } from '@types';
+import { calculateTotalAmount } from '@utils/bitcoin';
 
 const WS_URL = 'wss://ws.blockchain.info/inv';
-const ONE_BTC = 100000000;
 
 interface UseWebSocketProps {
   onTransaction: (transaction: Transaction) => void;
@@ -30,7 +30,7 @@ export function useWebSocket({ onTransaction }: UseWebSocketProps) {
           hash: tx.hash,
           from: tx.inputs[0]?.prev_out?.addr || 'Unknown',
           to: tx.out[0]?.addr || 'Unknown',
-          amount: tx.out.reduce((sum: number, output: any) => sum + output.value, 0) / ONE_BTC,
+          amount: calculateTotalAmount(tx.out),
           timestamp: new Date().toISOString()
         };
         onTransaction(transaction);

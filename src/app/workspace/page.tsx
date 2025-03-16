@@ -1,4 +1,4 @@
-import ClientWrapper from '../components/WorkSpace/ClientWrapper';
+import ClientWrapper from '@workspace/ClientWrapper';
 
 export default function WorkspacePage() {
   return (

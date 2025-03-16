@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 
-const WorkspaceClient = dynamic(() => import('./WorkspaceClient'), {
+const WorkspaceClient = dynamic(() => import('@workspace/WorkspaceClient'), {
   ssr: false,
   loading: () => <div>Loading workspace...</div>
 });

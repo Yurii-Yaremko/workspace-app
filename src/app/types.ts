@@ -25,3 +25,11 @@ export interface BlockData {
     deleteBlock: (id: number) => void;
     handleReset: () => void;
   }
+
+  export interface Transaction {
+    hash: string;
+    from: string;
+    to: string;
+    amount: number;
+    timestamp: string;
+  } 

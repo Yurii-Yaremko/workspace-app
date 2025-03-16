@@ -2,11 +2,11 @@
   padding: 2rem;
   max-width: 1200px;
   margin: 0 auto;
+}
 
-  h1 {
-    margin-bottom: 2rem;
-    text-align: center;
-  }
+.title {
+  margin-bottom: 2rem;
+  text-align: center;
 }
 
 .controls {
@@ -14,42 +14,41 @@
   gap: 1rem;
   margin-bottom: 2rem;
   justify-content: center;
+}
 
-  button {
-    width: 150px;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background-color 0.2s;
+.controlButton {
+  width: 150px;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.2s;
 
-    &:first-child {
-      background: rgba(40, 167, 69);
+  &:first-child {
+    background: rgba(40, 167, 69);
+    color: white;
 
-      color: white;
-
-      &:hover {
-        scale: 1.1;
-      }
+    &:hover {
+      scale: 1.1;
     }
+  }
 
-    &:nth-child(2) {
-      background: rgb(245, 215, 81);
-      color: white;
+  &:nth-child(2) {
+    background: rgba(220, 53, 69);
+    color: white;
 
-      &:hover {
-        scale: 1.1;
-      }
+    &:hover {
+      scale: 1.1;
     }
+  }
 
-    &:last-child {
-      background: rgba(220, 53, 69);
-      color: white;
+  &:last-child {
+    background: rgb(245, 215, 81);
+    color: white;
 
-      &:hover {
-        scale: 1.1;     
-       }
+    &:hover {
+      scale: 1.1;
     }
   }
 }
@@ -61,36 +60,39 @@
   margin-bottom: 2rem;
 }
 
-.transactionList {
+.tableContainer {
   width: 100%;
   height: 400px;
   overflow-y: auto;
   overflow-x: auto;
+}
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
 
-    thead {
-      position: sticky;
-      top: 0;
-      z-index: 1;
-    }
-    
-    th, td {
-      padding: 1rem;
-      text-align: left;
-      border-bottom: 1px solid #ddd;
-    }
+.tableHeader {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 
-    th {
-      background: #f8f9fa;
-      font-weight: bold;
-    }
+.tableCell,
+.tableHeaderCell {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
 
-    tr:hover {
-      background: #f8f9fa;
-    }
+.tableHeaderCell {
+  background: #f8f9fa;
+  font-weight: bold;
+}
+
+.tableRow {
+  &:hover {
+    background: #f8f9fa;
   }
 }
 
@@ -99,11 +101,12 @@
     padding: 1rem;
   }
 
-  .transactionList {
+  .tableContainer {
     font-size: 0.875rem;
+  }
 
-    th, td {
-      padding: 0.5rem;
-    }
+  .tableCell,
+  .tableHeaderCell {
+    padding: 0.5rem;
   }
 } 

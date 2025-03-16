@@ -2,7 +2,7 @@
 
 import dynamic from 'next/dynamic';
 
-const BitcoinTracker = dynamic(() => import('./BitcoinTracker'), {
+const BitcoinTracker = dynamic(() => import('@bitcoin/BitcoinTracker'), {
   ssr: false,
   loading: () => <div>Connecting to WebSocket...</div>
 });
