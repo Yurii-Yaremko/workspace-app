@@ -1,3 +1,5 @@
+@use '@styles/variables.scss' as *;
+
 .container {
   padding: 2rem;
   max-width: 1200px;
@@ -7,6 +9,14 @@
 .title {
   margin-bottom: 2rem;
   text-align: center;
+  font-family: $font-family-base;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  background: $gradient-dark;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradient 3s ease infinite;
 }
 
 .controls {
@@ -58,6 +68,12 @@
   font-weight: bold;
   text-align: center;
   margin-bottom: 2rem;
+  font-family: $font-family-base;
+  background: $gradient-dark;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% auto;
+  animation: gradient 3s ease infinite;
 }
 
 .tableContainer {
@@ -65,6 +81,7 @@
   height: 400px;
   overflow-y: auto;
   overflow-x: auto;
+  font-family: $font-family-base;
 }
 
 .table {
@@ -108,5 +125,17 @@
   .tableCell,
   .tableHeaderCell {
     padding: 0.5rem;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
   }
 } 

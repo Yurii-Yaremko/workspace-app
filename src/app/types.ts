@@ -32,4 +32,9 @@ export interface BlockData {
     to: string;
     amount: number;
     timestamp: string;
+  }
+
+  export interface TransactionOutput {
+    value: number;
+    addr?: string;
   } 

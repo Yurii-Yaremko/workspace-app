@@ -1,4 +1,16 @@
 import './globals.scss';
+import { Inter, Source_Code_Pro } from 'next/font/google';
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700'],
+  display: 'swap',
+});
+
+const sourceCodePro = Source_Code_Pro({
+  subsets: ['latin'],
+  display: 'swap',
+});
 
 export const metadata = {
   title: 'Workspace App',
@@ -12,12 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning={true}>
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Roboto+Mono&display=swap" rel="stylesheet" />
-      </head>
-      <body suppressHydrationWarning={true}>{children}</body>
+      <body className={`${inter.className} ${sourceCodePro.className}`} suppressHydrationWarning={true}>
+        {children}
+      </body>
     </html>
   );
 }
